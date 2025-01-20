@@ -5,17 +5,20 @@ import com.bank.Account //imports account class
 import com.bank.SavingsAccount
 import com.bank.Bank
 
+var banktest = Bank()
+
 fun main() {
     mainMenu()
 }
 
 fun mainMenu(): Unit {
     var selection : Int = 0
+
     while (selection != 8) {
         println("Main Menu:")
-        println("1. Create A New Account") 
-        println("2. Option 2") 
-        println("3. Option 3") 
+        println("1. Create A New Savings Account") 
+        println("2. Account Info") 
+        println("3. Update Intrest") 
         println("4. Option 4") 
         println("5. Option 5") 
         println("6. Option 6") 
@@ -26,11 +29,22 @@ fun mainMenu(): Unit {
         var userChoose = readLine()?.toIntOrNull()
 
         when (userChoose) {
-            1 -> {var banktest = Bank()
+            1 -> {
                 banktest.createSavingsAccount(  )
                 }
-            2 -> println("Hello World")
-            3 -> println("Hello World")
+            2 -> {
+                var isNumber = false
+                while (isNumber == false){
+                    println("Please enter the Account Number to see: ")
+                    var readNumber = readLine()?.toIntOrNull()
+                        if (readNumber != null && readNumber >= 1){
+                            println(banktest.getAccountDetails(readNumber - 1))
+                            isNumber = true
+                        }
+                    }
+                }
+            3 -> {println("Updating intrest ... ... ...")
+                    banktest.updateInterest()}
             4 -> println("Hello World")
             5 -> println("Hello World")
             6 -> println("Hello World")

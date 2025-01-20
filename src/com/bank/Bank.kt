@@ -1,33 +1,37 @@
 package com.bank
 
-class Bank {
-    private val accounts: MutableMap<Int, Account> = mutableMapOf()
-    val savings = SavingsAccount()
+class Bank {    
+    var accountsList : MutableList<Account> = mutableListOf()
+    
+    
     fun createSavingsAccount(){
-       savings.getAccount()
-       println(savings.returnBalance())
-       println(savings.returnAccountInfo() + "\n")
+        accountsList.add(SavingsAccount())
+        val lastAccount = accountsList.last()
+        val accountsListLenght = accountsList.size
+        lastAccount.getAccount(accountsListLenght)
+        println(lastAccount.returnBalance())
+        println(lastAccount.returnAccountInfo() + "\n")
     }
 
-    fun removeAccount(accountNumber: Int) {
-        if (accounts.remove(accountNumber) != null) {
-            println("Account number $accountNumber has been removed.")
-        } else {
-            println("Account number $accountNumber does not exist.")
+    // fun removeAccount(accountNumber: Int) {
+    //     if (accounts.remove(accountNumber) != null) {
+    //         println("Account number $accountNumber has been removed.")
+    //     } else {
+    //         println("Account number $accountNumber does not exist.")
+    //     }
+    // }
+
+    fun getAccountDetails(accountNumber: Int): String {
+        
+        return accountsList[accountNumber].returnAccountInfo()
+    }
+
+    fun updateInterest() {
+        var i : Int = 0
+        for (item in accountsList) {
+        accountsList[i].calculateInterest()
+        i++ 
+        } 
+        
         }
-    }
-
-    fun getAccountDetails(accountNumber: Int): Account? {
-        return accounts[accountNumber]
-    }
-
-    fun printAllAccounts() {
-        if (accounts.isNotEmpty()) {
-            accounts.forEach { (number, account) ->
-                // println("Account Number: $number, Account Holder: ${account.accountHolderName}, Balance: ${account.returnBalance()}")
-            }
-        } else {
-            println("No accounts found.")
-        }
-    }
 }

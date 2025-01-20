@@ -4,7 +4,8 @@ abstract class Account() {
     
     abstract protected var accountType: String
     abstract protected var accountNumber: Int
-    abstract protected var accountHolderName: String 
+    abstract protected var accountHolderName: String
+     
 
     //attributes 
         
@@ -12,6 +13,7 @@ abstract class Account() {
     protected var accountInterestRate : Float = 0.0f
     protected var isSetup : Boolean = false
     protected var daysSinceSetup : Int = 0 //used to calculate interest with the calculateInterest() function.
+    
 
     
     //Methods
@@ -83,19 +85,36 @@ abstract class Account() {
         }
     }
 
+    protected fun getAccountInterestRate() {
+        var isNumber = false
+
+        while (isNumber == false){
+        println("Please enter the intrest rate of this account in percent:  ")
+        var readNumber = readLine()?.toFloatOrNull()
+            if (readNumber != null && readNumber>= 1) {
+                accountInterestRate = readNumber
+                isNumber = true
+            } 
+        
+        }
+        
+    }
+
     
-    fun calculateInterest(){
+    public fun calculateInterest(){
         //run at the end of each day to calculate interest. 
+        accountBalance = accountBalance * (1 + (accountInterestRate / 100))
     } 
 
-    public fun getAccount() {
+    public fun getAccount(newAccountNumber : Int) {
         //used to make account. after run
         println("New Account Setup: \n")
         
         if (isSetup != true) {      
-            getAccountNumber()
+            accountNumber = newAccountNumber
             getAccountHolderName()
             getAccountInitialValue()
+            getAccountInterestRate()
             isSetup = true //this prevents the function from being run again. 
             println("Account has been set up! ")
         } else {
