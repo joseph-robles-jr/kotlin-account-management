@@ -3,14 +3,35 @@ package com.bank
 class Bank {    
     var accountsList : MutableList<Account> = mutableListOf()
     
-    
-    fun createSavingsAccount(){
-        accountsList.add(SavingsAccount())
+    private fun createAccount(){
         val lastAccount = accountsList.last()
         val accountsListLenght = accountsList.size
         lastAccount.getAccount(accountsListLenght)
+        clearScreen()
         println(lastAccount.returnBalance())
         println(lastAccount.returnAccountInfo() + "\n")
+    }
+    
+    fun createSavingsAccount(){
+        accountsList.add(SavingsAccount())
+        // val lastAccount = accountsList.last()
+        // val accountsListLenght = accountsList.size
+        // lastAccount.getAccount(accountsListLenght)
+        // println(lastAccount.returnBalance())
+        // println(lastAccount.returnAccountInfo() + "\n")
+        createAccount()
+    }
+    
+
+    fun createCheckingAccount(){
+        accountsList.add(CheckingAccount())
+        // accountsList.add(CheckingAccount())
+        // val lastAccount = accountsList.last()
+        // val accountsListLenght = accountsList.size
+        // lastAccount.getAccount(accountsListLenght)
+        // println(lastAccount.returnBalance())
+        // println(lastAccount.returnAccountInfo() + "\n")
+        createAccount()
     }
 
     fun removeAccount(accountNumber: Int): String { //AI was used in the creation of this Method.
@@ -35,11 +56,13 @@ class Bank {
     }
 
     fun updateInterest() {
+        println("Updating intrest ... ... ...")
         var i : Int = 0
         for (item in accountsList) {
         accountsList[i].calculateInterest()
         i++ 
         } 
-        
+        clearScreen()
+        println("Update Complete!")
         }
 }

@@ -75,7 +75,7 @@ abstract class Account() {
         var isNumber = false
 
         while (isNumber == false){
-        println("Please enter the Initial Deposited Amount: ")
+        println("Please enter the Initial Deposited Amount: $")
         var readNumber = readLine()?.toFloatOrNull()
             if (readNumber != null && readNumber>= 1) {
                 accountBalance = readNumber
@@ -85,20 +85,22 @@ abstract class Account() {
         }
     }
 
-    protected fun getAccountInterestRate() {
-        var isNumber = false
+    abstract protected fun getAccountInterestRate() 
+    
+    // {
+    //     var isNumber = false
 
-        while (isNumber == false){
-        println("Please enter the intrest rate of this account in percent:  ")
-        var readNumber = readLine()?.toFloatOrNull()
-            if (readNumber != null && readNumber>= 1) {
-                accountInterestRate = readNumber
-                isNumber = true
-            } 
+    //     while (isNumber == false){
+    //     println("Please enter the intrest rate of this account in percent:  ")
+    //     var readNumber = readLine()?.toFloatOrNull()
+    //         if (readNumber != null && readNumber>= 1) {
+    //             accountInterestRate = readNumber
+    //             isNumber = true
+    //         } 
         
-        }
+    //     }
         
-    }
+    // }
 
     
     public fun calculateInterest(){
