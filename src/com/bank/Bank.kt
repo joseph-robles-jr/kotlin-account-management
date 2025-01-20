@@ -13,17 +13,25 @@ class Bank {
         println(lastAccount.returnAccountInfo() + "\n")
     }
 
-    // fun removeAccount(accountNumber: Int) {
-    //     if (accounts.remove(accountNumber) != null) {
-    //         println("Account number $accountNumber has been removed.")
-    //     } else {
-    //         println("Account number $accountNumber does not exist.")
-    //     }
-    // }
+    fun removeAccount(accountNumber: Int): String { //AI was used in the creation of this Method.
+        // Convert accountNumber to list index by subtracting 1
+        val indexToRemove = accountNumber - 1
+
+        // Check if the index is valid
+        if (indexToRemove >= 0 && indexToRemove < accountsList.size) {
+            accountsList.removeAt(indexToRemove) //removes account
+            return "Account number $accountNumber has been removed."
+        } else {
+            return "Account number $accountNumber does not exist."
+        }
+    }
 
     fun getAccountDetails(accountNumber: Int): String {
-        
-        return accountsList[accountNumber].returnAccountInfo()
+        if (accountNumber >= 0 && accountNumber < accountsList.size) {
+            return accountsList[accountNumber].returnAccountInfo()
+        } else {
+            return "Account Number: $accountNumber does not exist."
+        }
     }
 
     fun updateInterest() {
