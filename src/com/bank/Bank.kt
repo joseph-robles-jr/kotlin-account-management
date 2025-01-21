@@ -34,6 +34,7 @@ class Bank {
         createAccount()
     }
 
+
     fun removeAccount(accountNumber: Int): String { //AI was used in the creation of this Method.
         // Convert accountNumber to list index by subtracting 1
         val indexToRemove = accountNumber - 1
@@ -41,6 +42,7 @@ class Bank {
         // Check if the index is valid
         if (indexToRemove >= 0 && indexToRemove < accountsList.size) {
             accountsList.removeAt(indexToRemove) //removes account
+            accountsList.add(indexToRemove, FillerAccount()) // Adds a blank entry in the space to prevent creating multiple accounts with the same last list number. 
             return "Account number $accountNumber has been removed."
         } else {
             return "Account number $accountNumber does not exist."

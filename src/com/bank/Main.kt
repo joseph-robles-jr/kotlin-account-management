@@ -3,6 +3,8 @@ package com.bank
 
 import com.bank.Account //imports account class
 import com.bank.SavingsAccount
+import com.bank.CheckingAccount
+import com.bank.FillerAccount
 import com.bank.Bank
 
 var accounting = Bank()

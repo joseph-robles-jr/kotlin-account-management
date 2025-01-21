@@ -11,7 +11,7 @@ abstract class Account() {
         
     protected var accountBalance : Float = 0.0f
     protected var accountInterestRate : Float = 0.0f
-    protected var isSetup : Boolean = false
+    abstract protected var isSetup : Boolean
     protected var daysSinceSetup : Int = 0 //used to calculate interest with the calculateInterest() function.
     
 
