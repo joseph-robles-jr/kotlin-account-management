@@ -86,23 +86,7 @@ abstract class Account() {
     }
 
     abstract protected fun getAccountInterestRate() 
-    
-    // {
-    //     var isNumber = false
-
-    //     while (isNumber == false){
-    //     println("Please enter the intrest rate of this account in percent:  ")
-    //     var readNumber = readLine()?.toFloatOrNull()
-    //         if (readNumber != null && readNumber>= 1) {
-    //             accountInterestRate = readNumber
-    //             isNumber = true
-    //         } 
-        
-    //     }
-        
-    // }
-
-    
+       
     public fun calculateInterest(){
         //run at the end of each day to calculate interest. 
         accountBalance = accountBalance * (1 + (accountInterestRate / 100))
