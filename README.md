@@ -19,7 +19,7 @@ Steps to build and/or run the software:
 
 Instructions for using the software:
 
-1. First step here
+1. press 1 or 2 to create a new accountz
 2.
 3.
 
