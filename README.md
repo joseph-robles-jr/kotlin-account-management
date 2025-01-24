@@ -5,7 +5,7 @@
 
 **Project Title**: kotlin-account-management
 
-**Project Description**:  A somple console project in Kotlin to make and manage a simple bank
+**Project Description**:  A simple console project in Kotlin to demonstrate understanding of classes and the language. The program allowws you to make and manage a small, simple bank.
 
 **Project Goals**: To demonstrate a basic proficiency in Kotlin, incluing Class Plymorphism. 
 
