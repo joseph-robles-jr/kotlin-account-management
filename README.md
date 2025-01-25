@@ -35,7 +35,7 @@ To recreate the development environment, you need the following software and/or 
 
 I found these websites useful in developing this software:
 
-* [Website Title](Link)
+* [Google Kotlin Lessons](https://developer.android.com/kotlin/campaign/learn)
 *
 *
 
@@ -43,6 +43,6 @@ I found these websites useful in developing this software:
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [ ] First thing here
-* [ ]
-* [ ]
+* [ ] Better percentege handling in the interest catagory
+* [ ] Writing to disk
+* [ ] Loading from disk.
